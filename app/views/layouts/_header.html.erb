@@ -7,20 +7,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="uk-grid">
+	<div class="uk-width-1-1">
+		<header>
+			<nav class="uk-navbar">
+				<ul class="uk-navbar-nav"> 
+					<% if user_signed_in? %>
+						<li> <%= link_to "Uredi profil", edit_user_registration_path %></li>
+						<li> <%= link_to "Odjava", destroy_user_session_path, method: :delete %></li>
+					<% else %>
 
-<header>
-	<% if user_signed_in? %>
-		<li> <%= link_to "Uredi profil", edit_user_registration_path %></li>
-		<li> <%= link_to "Odjava", destroy_user_session_path, method: :delete %></li>
-	<% else %>
+						<li><%= link_to "Prijava", new_user_session_path %> </li>
+						<li> <%= link_to "Registracija", new_user_registration_path %> </li>
+						
+					<% end %>
 
-		<li><%= link_to "Prijava", new_user_session_path %> </li>
-		<li> <%= link_to "Registracija", new_user_registration_path %> </li>
-		
-	<% end %>
+						<li> <%= link_to "Home", root_path %> </li>
+				</ul>
+			</nav>
+		</header>
+	</div>
 
-		<li> <%= link_to "Home", root_path %> </li>
-</header>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+	<div class="uk-grid">
+		<div class="uk-grid-1-1">
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+		</div>
+	</div>

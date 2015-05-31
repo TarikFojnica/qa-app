@@ -1,0 +1,13 @@
+<div class="comment">
+	<h5>Number: <%= @post.comments.count %></h5>
+	<% @comments.each do |comment| %>
+
+		<div class="element">
+			<p><%= comment.content %></p>
+			<p><%= comment.user.name %></p>
+		</div>
+		<hr />
+
+	<% end %>
+
+</div>

@@ -1,0 +1,6 @@
+<h4>Form rendered</h4>
+
+<%= simple_form_for ([@post, @post.comments.build]) do |f| %>
+	<%= f.input :content %>
+	<%= f.submit %>
+<%end%>
